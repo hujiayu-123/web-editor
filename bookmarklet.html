@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网页随心改 - 书签小工具安装页面</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            font-size: 42px;
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 18px;
+            margin-bottom: 40px;
+        }
+
+        .bookmarklet-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .bookmarklet-link {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 20px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: bold;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+            cursor: move;
+        }
+
+        .bookmarklet-link:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        .instruction {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 25px 0;
+            border-left: 4px solid #667eea;
+        }
+
+        .instruction h2 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .step {
+            margin: 15px 0;
+            padding-left: 30px;
+            position: relative;
+            color: #555;
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        .step::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .feature-card {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .feature-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .feature-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .feature-desc {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .demo-section {
+            background: #fff3cd;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 30px 0;
+            border: 2px dashed #ffc107;
+        }
+
+        .demo-section h3 {
+            color: #856404;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .demo-section p {
+            color: #856404;
+            line-height: 1.8;
+        }
+
+        .warning {
+            background: #f8d7da;
+            border: 2px solid #f5c6cb;
+            color: #721c24;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 25px 0;
+        }
+
+        .warning strong {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        code {
+            background: #e9ecef;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            color: #e83e8c;
+        }
+
+        .test-area {
+            margin: 30px 0;
+            padding: 30px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            border-radius: 15px;
+            color: white;
+        }
+
+        .test-area h2 {
+            margin-bottom: 15px;
+        }
+
+        .test-area p {
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 32px;
+            }
+
+            .bookmarklet-link {
+                font-size: 18px;
+                padding: 15px 30px;
+            }
+        }
+
+        .highlight {
+            background: yellow;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 网页随心改</h1>
+        <p class="subtitle">一键编辑任何网页 · 无需安装 · 即刻使用</p>
+
+        <div class="bookmarklet-box">
+            <p style="color: white; margin-bottom: 20px; font-size: 18px;">
+                👇 将下面的按钮拖到浏览器书签栏
+            </p>
+            <a href="javascript:(function(){if(window.webPageEditor){alert('编辑器已经在运行中!');return;}var s=document.createElement('style');s.textContent='#webPageEditorPanel{position:fixed;top:0;width:400px;height:100vh;background:white;box-shadow:0 0 20px rgba(0,0,0,0.3);z-index:2147483647;transition:all 0.3s;overflow-y:auto;font-family:sans-serif}#webPageEditorPanel.pos-right{right:-400px}#webPageEditorPanel.pos-right.open{right:0}#webPageEditorPanel.pos-left{left:-400px}#webPageEditorPanel.pos-left.open{left:0}#webPageEditorToolbar{position:fixed;top:20px;right:20px;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);padding:15px;border-radius:50px;box-shadow:0 5px 20px rgba(0,0,0,0.3);z-index:2147483646;display:flex;gap:10px}#webPageEditorToolbar button{background:rgba(255,255,255,0.9);border:none;width:45px;height:45px;border-radius:50%;cursor:pointer;font-size:20px;transition:all 0.3s}#webPageEditorToolbar button:hover{background:white;transform:scale(1.1)}#webPageEditorToolbar button.active{background:#ffd700;transform:scale(1.15)}.wpe-editable:hover{outline:2px dashed #667eea!important;outline-offset:2px;cursor:pointer!important}.wpe-selected{outline:3px solid #667eea!important;outline-offset:2px}#webPageEditorPanel h3{background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:white;padding:20px;margin:0;font-size:18px;position:relative}#webPageEditorPanel .close-panel{position:absolute;right:15px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.2);border:none;color:white;width:35px;height:35px;border-radius:50%;cursor:pointer;font-size:22px;line-height:1;transition:all 0.3s;display:flex;align-items:center;justify-content:center}#webPageEditorPanel .close-panel:hover{background:rgba(255,255,255,0.4);transform:translateY(-50%) scale(1.15)}#webPageEditorPanel .control-group{padding:15px;border-bottom:1px solid #eee}#webPageEditorPanel label{display:block;margin-bottom:8px;color:#333;font-weight:500;font-size:14px}#webPageEditorPanel input,#webPageEditorPanel textarea,#webPageEditorPanel select{width:100%;padding:10px;border:1px solid #ddd;border-radius:6px;font-size:14px;font-family:inherit}#webPageEditorPanel textarea{min-height:80px;resize:vertical}#webPageEditorPanel input[type=color]{height:45px;cursor:pointer}#webPageEditorPanel button.delete-btn{width:100%;padding:12px;background:#ff4757;color:white;border:none;border-radius:6px;cursor:pointer;font-size:14px;margin-top:10px}#webPageEditorPanel button.delete-btn:hover{background:#ff3838}';document.head.appendChild(s);var toolbar=document.createElement('div');toolbar.id='webPageEditorToolbar';toolbar.innerHTML='<button id=wpeToggleEdit title=切换编辑模式>✏️</button><button id=wpeScreenshot title=截图>📸</button><button id=wpeClose title=关闭编辑器>✖️</button>';document.body.appendChild(toolbar);var panel=document.createElement('div');panel.id='webPageEditorPanel';panel.className='pos-right';panel.innerHTML='<h3>编辑属性<button class=close-panel id=wpeClosePanel title=关闭面板>✕</button></h3><div id=wpeContent style=padding:20px;color:#999;text-align:center>点击页面元素开始编辑<br><br>💡 面板会智能定位避免遮挡</div>';document.body.appendChild(panel);var editMode=true;var selectedElement=null;function smartPos(x){var w=window.innerWidth;if(x/w>0.5){panel.classList.remove('pos-right');panel.classList.add('pos-left');}else{panel.classList.remove('pos-left');panel.classList.add('pos-right');}}function closePanel(){panel.classList.remove('open');if(selectedElement){selectedElement.classList.remove('wpe-selected');selectedElement=null;}}document.getElementById('wpeClosePanel').addEventListener('click',function(e){e.stopPropagation();closePanel();});document.getElementById('wpeToggleEdit').addEventListener('click',function(){editMode=!editMode;this.classList.toggle('active');if(!editMode){closePanel();}alert(editMode?'编辑模式已开启':'编辑模式已关闭');});document.getElementById('wpeScreenshot').addEventListener('click',function(){alert('截图功能提示:\n\n1. 使用浏览器自带截图(推荐)\n2. 或使用 Ctrl/Cmd + Shift + S\n3. 或使用系统截图工具');});document.getElementById('wpeClose').addEventListener('click',function(){if(confirm('确定要关闭编辑器吗?所有修改将保留在当前页面。')){toolbar.remove();panel.remove();s.remove();var els=document.querySelectorAll('.wpe-editable, .wpe-selected');for(var i=0;i<els.length;i++){els[i].classList.remove('wpe-editable','wpe-selected');}window.webPageEditor=null;}});function rgbToHex(rgb){if(!rgb||rgb==='rgba(0, 0, 0, 0)'||rgb==='transparent')return'#ffffff';var result=rgb.match(/\d+/g);if(!result)return'#000000';var hex='#';for(var i=0;i<3;i++){var h=parseInt(result[i]).toString(16);hex+=h.length===1?'0'+h:h;}return hex;}function updatePanel(element){var isImage=element.tagName==='IMG';var style=window.getComputedStyle(element);var html='<div class=control-group>';if(isImage){html+='<label>图片地址:</label>';html+='<input type=text id=wpeImgSrc value='+(element.src?element.src:'')+'>';html+='<p style=font-size:12px;color:#666;margin-top:5px>💡 粘贴图片URL后按回车</p>';html+='<label style=margin-top:15px>或上传本地图片:</label>';html+='<input type=file id=wpeImgFile accept=image/* style=width:100%;padding:10px;border:1px solid #ddd;border-radius:6px;cursor:pointer>';html+='<p style=font-size:12px;color:#666;margin-top:5px>📁 选择本地图片文件</p>';html+='<label style=margin-top:15px>图片宽度:</label>';html+='<input type=text id=wpeImgWidth value='+(element.style.width||element.width||'auto')+' placeholder=auto>';html+='<p style=font-size:12px;color:#666;margin-top:5px>示例: 300px 或 50% 或 auto</p>';html+='<label style=margin-top:15px>图片高度:</label>';html+='<input type=text id=wpeImgHeight value='+(element.style.height||element.height||'auto')+' placeholder=auto>';html+='<p style=font-size:12px;color:#666;margin-top:5px>示例: 200px 或 auto</p>';}else{html+='<label>文本内容:</label>';html+='<textarea id=wpeText>'+element.textContent+'</textarea>';html+='<label style=margin-top:15px>字体大小(px):</label>';html+='<input type=number id=wpeFontSize value='+parseInt(style.fontSize)+' min=8 max=200>';html+='<label style=margin-top:15px>文字颜色:</label>';html+='<input type=color id=wpeColor value='+rgbToHex(style.color)+'>';html+='<label style=margin-top:15px>背景颜色:</label>';html+='<input type=color id=wpeBgColor value='+rgbToHex(style.backgroundColor)+'>';html+='<label style=margin-top:15px>字体粗细:</label>';html+='<select id=wpeFontWeight>';html+='<option value=normal '+(style.fontWeight==='400'?'selected':'')+'>正常</option>';html+='<option value=bold '+(style.fontWeight==='700'?'selected':'')+'>粗体</option>';html+='<option value=lighter>细体</option>';html+='</select>';html+='<label style=margin-top:15px>文字对齐:</label>';html+='<select id=wpeTextAlign>';html+='<option value=left '+(style.textAlign==='left'?'selected':'')+'>左对齐</option>';html+='<option value=center '+(style.textAlign==='center'?'selected':'')+'>居中</option>';html+='<option value=right '+(style.textAlign==='right'?'selected':'')+'>右对齐</option>';html+='</select>';}html+='<button class=delete-btn id=wpeDelete>🗑️ 删除元素</button>';html+='<button class=delete-btn id=wpeHide style=background:#ffa502;margin-top:5px>👁️ 隐藏元素</button>';html+='</div>';document.getElementById('wpeContent').innerHTML=html;if(isImage){document.getElementById('wpeImgSrc').addEventListener('change',function(){element.src=this.value;});document.getElementById('wpeImgSrc').addEventListener('keypress',function(e){if(e.key==='Enter'){element.src=this.value;}});document.getElementById('wpeImgFile').addEventListener('change',function(e){var file=e.target.files[0];if(file){if(file.size>5*1024*1024){alert('⚠️ 图片太大!\n\n文件大小: '+Math.round(file.size/1024/1024)+'MB\n建议: 小于5MB的图片\n\n大图片会导致页面卡顿');return;}var reader=new FileReader();reader.onload=function(evt){element.src=evt.target.result;document.getElementById('wpeImgSrc').value='(本地图片已转换为Base64)';};reader.readAsDataURL(file);}});document.getElementById('wpeImgWidth').addEventListener('input',function(){var val=this.value;if(val&&!isNaN(val)){val=val+'px';}element.style.width=val;});document.getElementById('wpeImgHeight').addEventListener('input',function(){var val=this.value;if(val&&!isNaN(val)){val=val+'px';}element.style.height=val;});}else{document.getElementById('wpeText').addEventListener('input',function(){element.textContent=this.value;});document.getElementById('wpeFontSize').addEventListener('input',function(){element.style.fontSize=this.value+'px';});document.getElementById('wpeColor').addEventListener('input',function(){element.style.color=this.value;});document.getElementById('wpeBgColor').addEventListener('input',function(){element.style.backgroundColor=this.value;});document.getElementById('wpeFontWeight').addEventListener('change',function(){element.style.fontWeight=this.value;});document.getElementById('wpeTextAlign').addEventListener('change',function(){element.style.textAlign=this.value;});}document.getElementById('wpeDelete').addEventListener('click',function(){if(confirm('确定删除这个元素?')){element.remove();closePanel();}});document.getElementById('wpeHide').addEventListener('click',function(){element.style.display='none';closePanel();});}function handleClick(e,absX){if(!editMode)return;if(e.target.closest('#webPageEditorPanel')||e.target.closest('#webPageEditorToolbar'))return;e.preventDefault();e.stopPropagation();if(e.target.tagName==='IFRAME'){try{var iframeDoc=e.target.contentDocument||e.target.contentWindow.document;if(iframeDoc){alert('检测到iframe元素\n\n✅ 这是同源iframe,可以编辑内部内容\n\n💡 提示:请在iframe内部点击具体元素进行编辑');return;}else{alert('⚠️ 无法编辑此iframe\n\n原因:这是跨域iframe,浏览器安全策略禁止访问\n\n建议:直接打开iframe的源网址进行编辑');return;}}catch(err){alert('⚠️ 无法编辑此iframe\n\n原因:这是跨域iframe,浏览器安全策略禁止访问\n\n建议:直接打开iframe的源网址进行编辑');return;}}var clickX=absX!==undefined?absX:e.clientX;smartPos(clickX);if(selectedElement){selectedElement.classList.remove('wpe-selected');}selectedElement=e.target;selectedElement.classList.add('wpe-selected','wpe-editable');panel.classList.add('open');updatePanel(selectedElement);}function initIframes(){var iframes=document.querySelectorAll('iframe');for(var i=0;i<iframes.length;i++){try{var iframeDoc=iframes[i].contentDocument||iframes[i].contentWindow.document;if(iframeDoc){var iframe=iframes[i];iframeDoc.addEventListener('click',function(e){var rect=iframe.getBoundingClientRect();var absX=rect.left+e.clientX;handleClick(e,absX);},true);}}catch(err){}}}document.addEventListener('click',handleClick,true);initIframes();window.webPageEditor=true;alert('✅ 网页编辑器已启动!\n\n点击页面上的任意元素开始编辑。\n\n提示:刷新页面后修改会消失,请及时截图保存!');})();" class="bookmarklet-link" onclick="alert('请将此按钮拖到书签栏,不要直接点击!'); return false;">
+                🎨 网页随心改
+            </a>
+            <p style="color: white; margin-top: 20px; font-size: 14px;">
+                ⚠️ 注意:要拖动到书签栏,不是点击!
+            </p>
+        </div>
+
+        <div class="instruction">
+            <h2>📖 安装步骤</h2>
+            <div class="step">确保浏览器书签栏可见(按 Ctrl+Shift+B 或 Cmd+Shift+B)</div>
+            <div class="step">用鼠标<span class="highlight">拖动</span>上面的"🎨 网页随心改"按钮到书签栏</div>
+            <div class="step">打开任意网页,点击书签栏中的"网页随心改"</div>
+            <div class="step">开始编辑!点击页面上的任何元素即可修改</div>
+        </div>
+
+        <div class="features">
+            <div class="feature-card">
+                <div class="feature-icon">✏️</div>
+                <div class="feature-title">即时编辑</div>
+                <div class="feature-desc">点击任意元素,立即修改文字、颜色、大小等属性</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎨</div>
+                <div class="feature-title">样式调整</div>
+                <div class="feature-desc">修改字体、颜色、背景、对齐方式等样式</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🗑️</div>
+                <div class="feature-title">删除隐藏</div>
+                <div class="feature-desc">删除或隐藏不想要的元素,让页面更简洁</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">↶↷</div>
+                <div class="feature-title">撤销重做</div>
+                <div class="feature-desc">支持撤销和重做操作,不怕改错</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🌐</div>
+                <div class="feature-title">任何网站</div>
+                <div class="feature-desc">在任何网站上使用,包括新闻、社交媒体等</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📱</div>
+                <div class="feature-title">跨平台</div>
+                <div class="feature-desc">支持Chrome、Edge、Firefox、Safari等浏览器</div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h3>💡 使用场景举例</h3>
+            <p>
+                ✓ 修改网页内容截图分享给朋友<br>
+                ✓ 隐藏广告和不想看的内容<br>
+                ✓ 调整网页字体大小方便阅读<br>
+                ✓ 修改颜色让页面更舒适<br>
+                ✓ 制作搞笑的网页截图<br>
+                ✓ 测试不同的文案效果
+            </p>
+        </div>
+
+        <div class="test-area">
+            <h2>🎯 测试区域</h2>
+            <p>安装完成后,可以在这个页面测试功能!</p>
+            <p>试试点击这段文字,然后修改颜色、大小或内容。</p>
+            <p style="font-size: 24px; font-weight: bold;">这是一个大标题,试试编辑它!</p>
+        </div>
+
+        <div class="warning">
+            <strong>⚠️ 重要提示</strong>
+            <p>• 所有修改只在当前页面有效,刷新后会恢复原样</p>
+            <p>• 如需保存修改效果,请使用截图工具</p>
+            <p>• 某些网站可能有安全策略限制,导致功能无法使用</p>
+            <p>• 此工具仅修改本地显示,不会影响网站服务器</p>
+            <p>• 请合理使用,不要用于欺诈或误导他人</p>
+        </div>
+
+        <div class="instruction">
+            <h2>🎮 功能说明</h2>
+            <div class="step"><strong>✏️ 编辑模式:</strong> 点击切换编辑模式开关</div>
+            <div class="step"><strong>↶ 撤销:</strong> 撤销上一步操作</div>
+            <div class="step"><strong>↷ 重做:</strong> 重做被撤销的操作</div>
+            <div class="step"><strong>📸 截图:</strong> 查看截图方法提示</div>
+            <div class="step"><strong>✖️ 关闭:</strong> 关闭编辑器(修改会保留)</div>
+        </div>
+
+        <div class="instruction">
+            <h2>❓ 常见问题</h2>
+            <div class="step">
+                <strong>Q: 为什么拖不到书签栏?</strong><br>
+                A: 确保书签栏已显示(Ctrl+Shift+B),用鼠标左键按住拖动,不要松开直到拖到书签栏。
+            </div>
+            <div class="step">
+                <strong>Q: 点击书签后没反应?</strong><br>
+                A: 某些网站(如Chrome商店、银行网站)有安全限制。尝试在其他网站使用。
+            </div>
+            <div class="step">
+                <strong>Q: 如何保存修改?</strong><br>
+                A: 使用截图工具保存。修改只在当前会话有效,刷新页面会恢复。
+            </div>
+            <div class="step">
+                <strong>Q: 可以在手机上用吗?</strong><br>
+                A: 手机浏览器通常不支持书签小工具,建议在电脑上使用。
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px; padding: 30px; background: #f8f9fa; border-radius: 12px;">
+            <h3 style="color: #333; margin-bottom: 15px;">🎉 准备好了吗?</h3>
+            <p style="color: #666; font-size: 16px; line-height: 1.8;">
+                将上面的按钮拖到书签栏,然后去任何网站试试吧!<br>
+                记得先在这个页面测试一下功能。
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // 防止在当前页面直接点击书签链接
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('📌 网页随心改 - 书签小工具安装页面');
+            console.log('👉 请将"网页随心改"按钮拖到书签栏');
+        });
+    </script>
+</body>
+</html>
