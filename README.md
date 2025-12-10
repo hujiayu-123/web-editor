@@ -10,14 +10,13 @@
 - 🎨 **样式调整** - 修改颜色、字体、大小、对齐等
 - 🗑️ **删除隐藏** - 删除或隐藏不想要的元素
 - 🖼️ **图片编辑** - 替换图片、上传本地图片、调整尺寸
-- 🌐 **iframe支持** - 支持同源iframe内容编辑xi
+- 🌐 **iframe支持** - 支持同源iframe内容编辑
 - 📱 **跨浏览器** - 支持Chrome、Edge、Firefox、Safari等
 
 ## 📦 文件说明
 
 - `bookmarklet.html` - 安装页面(推荐使用)
 - `bookmarklet-source.js` - 源代码(可读版本)
-- `index.html` - 独立的可视化编辑器
 
 ## 🚀 快速开始
 
